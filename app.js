@@ -30,89 +30,58 @@ cover:"assets/covers/es_un_secreto.jpg"
 
 ];
 
-const container =
-document.getElementById(
-"songsContainer"
-);
+const container = document.getElementById("songsContainer");
+const audio = document.getElementById("audio");
 
-const audio =
-document.getElementById(
-"audio"
-);
+const cover = document.getElementById("cover");
+const songTitle = document.getElementById("songTitle");
+const artistName = document.getElementById("artistName");
 
-const cover =
-document.getElementById(
-"cover"
-);
+const playBtn = document.getElementById("playBtn");
 
-const songTitle =
-document.getElementById(
-"songTitle"
-);
+const miniPlayer = document.getElementById("miniPlayer");
+const fullPlayer = document.getElementById("fullPlayer");
+const closePlayer = document.getElementById("closePlayer");
 
-const artistName =
-document.getElementById(
-"artistName"
-);
+const fullCover = document.getElementById("fullCover");
+const fullTitle = document.getElementById("fullTitle");
+const fullArtist = document.getElementById("fullArtist");
 
-const playBtn =
-document.getElementById(
-"playBtn"
-);
+const fullPlayBtn = document.getElementById("fullPlayBtn");
 
-const miniPlayer =
-document.getElementById(
-"miniPlayer"
-);
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-const fullPlayer =
-document.getElementById(
-"fullPlayer"
-);
+const progress = document.getElementById("progress");
+const progressBar = document.getElementById("progressBar");
 
-const closePlayer =
-document.getElementById(
-"closePlayer"
-);
+const currentTimeText =
+document.getElementById("currentTime");
 
-const fullCover =
-document.getElementById(
-"fullCover"
-);
-
-const fullTitle =
-document.getElementById(
-"fullTitle"
-);
-
-const fullArtist =
-document.getElementById(
-"fullArtist"
-);
-
-const fullPlayBtn =
-document.getElementById(
-"fullPlayBtn"
-);
-
-const prevBtn =
-document.getElementById(
-"prevBtn"
-);
-
-const nextBtn =
-document.getElementById(
-"nextBtn"
-);
+const durationText =
+document.getElementById("duration");
 
 let currentSong = 0;
 
+function formatTime(seconds){
+
+const mins =
+Math.floor(seconds / 60);
+
+const secs =
+Math.floor(seconds % 60);
+
+return `${mins}:${secs
+.toString()
+.padStart(2,"0")}`;
+
+}
+
 function renderSongs(){
 
-container.innerHTML="";
+container.innerHTML = "";
 
-songs.forEach(
-(song,index)=>{
+songs.forEach((song,index)=>{
 
 container.innerHTML += `
 
@@ -120,18 +89,13 @@ container.innerHTML += `
 class="card"
 onclick="loadSong(${index})">
 
-<img
-src="${song.cover}">
+<img src="${song.cover}">
 
 <div class="info">
 
-<h4>
-${song.title}
-</h4>
+<h4>${song.title}</h4>
 
-<p>
-${song.artist}
-</p>
+<p>${song.artist}</p>
 
 </div>
 
@@ -145,36 +109,33 @@ ${song.artist}
 
 function loadSong(index){
 
-currentSong=index;
+currentSong = index;
 
-audio.src=
+audio.src =
 songs[index].file;
 
-cover.src=
+cover.src =
 songs[index].cover;
 
-fullCover.src=
+fullCover.src =
 songs[index].cover;
 
-songTitle.textContent=
+songTitle.textContent =
 songs[index].title;
 
-artistName.textContent=
+artistName.textContent =
 songs[index].artist;
 
-fullTitle.textContent=
+fullTitle.textContent =
 songs[index].title;
 
-fullArtist.textContent=
+fullArtist.textContent =
 songs[index].artist;
 
 audio.play();
 
-playBtn.textContent=
-"⏸";
-
-fullPlayBtn.textContent=
-"⏸";
+playBtn.textContent = "⏸";
+fullPlayBtn.textContent = "⏸";
 
 }
 
@@ -186,21 +147,15 @@ if(audio.paused){
 
 audio.play();
 
-playBtn.textContent=
-"⏸";
-
-fullPlayBtn.textContent=
-"⏸";
+playBtn.textContent = "⏸";
+fullPlayBtn.textContent = "⏸";
 
 }else{
 
 audio.pause();
 
-playBtn.textContent=
-"▶";
-
-fullPlayBtn.textContent=
-"▶";
+playBtn.textContent = "▶";
+fullPlayBtn.textContent = "▶";
 
 }
 
@@ -215,21 +170,15 @@ if(audio.paused){
 
 audio.play();
 
-playBtn.textContent=
-"⏸";
-
-fullPlayBtn.textContent=
-"⏸";
+playBtn.textContent = "⏸";
+fullPlayBtn.textContent = "⏸";
 
 }else{
 
 audio.pause();
 
-playBtn.textContent=
-"▶";
-
-fullPlayBtn.textContent=
-"▶";
+playBtn.textContent = "▶";
+fullPlayBtn.textContent = "▶";
 
 }
 
@@ -282,9 +231,7 @@ nextBtn.addEventListener(
 
 currentSong++;
 
-if(
-currentSong >= songs.length
-){
+if(currentSong >= songs.length){
 
 currentSong = 0;
 
@@ -296,14 +243,57 @@ loadSong(currentSong);
 );
 
 audio.addEventListener(
+"timeupdate",
+()=>{
+
+if(audio.duration){
+
+const percent =
+(audio.currentTime /
+audio.duration) * 100;
+
+progress.style.width =
+percent + "%";
+
+currentTimeText.textContent =
+formatTime(
+audio.currentTime
+);
+
+durationText.textContent =
+formatTime(
+audio.duration
+);
+
+}
+
+}
+);
+
+progressBar.addEventListener(
+"click",
+(e)=>{
+
+const width =
+progressBar.clientWidth;
+
+const clickX =
+e.offsetX;
+
+audio.currentTime =
+(clickX / width)
+* audio.duration;
+
+}
+);
+
+audio.addEventListener(
 "ended",
 ()=>{
 
 currentSong++;
 
-if(
-currentSong >= songs.length
-){
+if(currentSong >= songs.length){
 
 currentSong = 0;
 
