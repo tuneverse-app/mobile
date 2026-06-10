@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -36,85 +37,182 @@ content="width=device-width, initial-scale=1.0">
 
 <main>
 
-<section class="hero">
+    <section class="hero">
 
-<!-- El contenido con el texto y el botón ahora está primero para aparecer a la izquierda -->
-<div class="hero-content">
+        <div class="hero-content">
 
-<h2>
-  <img
-        id="heroCover"
-        src="assets/icons/music.png"
+            <h2>
+
+                <img
+                id="heroCover"
+                src="assets/icons/music.png"
+                class="hero-cover">
+
+                Tu música.
+                Tu universo.
+
+            </h2>
+
+            <button>
+                Escuchar ahora
+            </button>
+
+        </div>
+
+        <img
+        src="assets/covers/song1.jpg"
         class="hero-cover">
-    Tu música.
-Tu universo.
-</h2>
 
-<button>
-Escuchar ahora
-</button>
+    </section>
 
-</div>
+    <section>
 
-<!-- La imagen de fondo/barra gris ahora está después para aparecer a la derecha -->
-<img
-src="assets/covers/song1.jpg"
-class="hero-cover">
+        <h3>Tendencias</h3>
 
-</section>
+        <div
+        id="songsContainer"
+        class="songs-row">
 
-<section>
+        </div>
 
-<h3>Tendencias</h3>
-
-<div
-id="songsContainer"
-class="songs-row">
-
-</div>
-
-</section>
+    </section>
 
 </main>
 
-<div class="mini-player">
+<!-- REPRODUCTOR PANTALLA COMPLETA -->
 
-<img
-id="cover"
-src="assets/covers/song1.jpg">
+<div
+id="fullPlayer"
+class="full-player">
 
-<div>
+    <div class="full-header">
 
-<h4 id="songTitle">
-Ninguna canción
-</h4>
+        <button
+        id="closePlayer">
 
-<p id="artistName">
-Selecciona una canción
-</p>
+            ⌄
+
+        </button>
+
+    </div>
+
+    <img
+    id="fullCover"
+    src="assets/covers/song1.jpg"
+    class="full-cover">
+
+    <h2 id="fullTitle">
+
+        Ninguna canción
+
+    </h2>
+
+    <p id="fullArtist">
+
+        Selecciona una canción
+
+    </p>
+
+    <div class="progress-container">
+
+        <div class="progress-bar">
+
+            <div
+            id="progress"
+            class="progress">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="full-controls">
+
+        <button id="prevBtn">
+
+            ⏮
+
+        </button>
+
+        <button id="fullPlayBtn">
+
+            ⏸
+
+        </button>
+
+        <button id="nextBtn">
+
+            ⏭
+
+        </button>
+
+    </div>
+
+    <div class="extra-actions">
+
+        <button id="likeBtn">
+
+            ❤️
+
+        </button>
+
+        <button id="playlistBtn">
+
+            ➕ Playlist
+
+        </button>
+
+    </div>
 
 </div>
 
-<button
-id="playBtn">
+<!-- MINI PLAYER -->
 
-▶
+<div
+id="miniPlayer"
+class="mini-player">
 
-</button>
+    <img
+    id="cover"
+    src="assets/covers/song1.jpg">
+
+    <div>
+
+        <h4 id="songTitle">
+
+            Ninguna canción
+
+        </h4>
+
+        <p id="artistName">
+
+            Selecciona una canción
+
+        </p>
+
+    </div>
+
+    <button
+    id="playBtn">
+
+        ▶
+
+    </button>
 
 </div>
 
 <nav class="bottom-nav">
 
-<button>🏠</button>
+    <button>🏠</button>
 
-<button>🔍</button>
+    <button>🔍</button>
 
-<button>🎵</button>
+    <button>🎵</button>
 
-<button>❤️</button>
+    <button>❤️</button>
 
-<button>👤</button>
+    <button>👤</button>
 
 </nav>
 
