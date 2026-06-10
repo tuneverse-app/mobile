@@ -42,15 +42,8 @@ content="width=device-width, initial-scale=1.0">
         <div class="hero-content">
 
             <h2>
-
-                <img
-                id="heroCover"
-                src="assets/icons/music.png"
-                class="hero-cover">
-
                 Tu música.
                 Tu universo.
-
             </h2>
 
             <button>
@@ -60,7 +53,8 @@ content="width=device-width, initial-scale=1.0">
         </div>
 
         <img
-        src="assets/covers/song1.jpg"
+        id="heroCover"
+        src="assets/covers/luna.jpg"
         class="hero-cover">
 
     </section>
@@ -79,7 +73,7 @@ content="width=device-width, initial-scale=1.0">
 
 </main>
 
-<!-- REPRODUCTOR PANTALLA COMPLETA -->
+<!-- FULL PLAYER -->
 
 <div
 id="fullPlayer"
@@ -87,35 +81,30 @@ class="full-player">
 
     <div class="full-header">
 
-        <button
-        id="closePlayer">
-
+        <button id="closePlayer">
             ⌄
-
         </button>
 
     </div>
 
     <img
     id="fullCover"
-    src="assets/covers/song1.jpg"
+    src="assets/covers/luna.jpg"
     class="full-cover">
 
     <h2 id="fullTitle">
-
         Ninguna canción
-
     </h2>
 
     <p id="fullArtist">
-
         Selecciona una canción
-
     </p>
 
     <div class="progress-container">
 
-        <div class="progress-bar">
+        <div
+        id="progressBar"
+        class="progress-bar">
 
             <div
             id="progress"
@@ -125,26 +114,32 @@ class="full-player">
 
         </div>
 
+        <div class="time-info">
+
+            <span id="currentTime">
+                0:00
+            </span>
+
+            <span id="duration">
+                0:00
+            </span>
+
+        </div>
+
     </div>
 
     <div class="full-controls">
 
         <button id="prevBtn">
-
             ⏮
-
         </button>
 
         <button id="fullPlayBtn">
-
             ⏸
-
         </button>
 
         <button id="nextBtn">
-
             ⏭
-
         </button>
 
     </div>
@@ -152,15 +147,11 @@ class="full-player">
     <div class="extra-actions">
 
         <button id="likeBtn">
-
             ❤️
-
         </button>
 
         <button id="playlistBtn">
-
             ➕ Playlist
-
         </button>
 
     </div>
@@ -175,20 +166,16 @@ class="mini-player">
 
     <img
     id="cover"
-    src="assets/covers/song1.jpg">
+    src="assets/covers/luna.jpg">
 
     <div>
 
         <h4 id="songTitle">
-
             Ninguna canción
-
         </h4>
 
         <p id="artistName">
-
             Selecciona una canción
-
         </p>
 
     </div>
