@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Tuneverse Mobile</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <img
+        src="assets/icons/logotv.PNG"
+        class="logo">
+
+        <h1>TUNEVERSE</h1>
+
+    </div>
+
+    <input
+    id="search"
+    placeholder="Buscar música">
+
+</header>
+
+<main>
+
+<section class="hero">
+
+<!-- El contenido con el texto y el botón ahora está primero para aparecer a la izquierda -->
+<div class="hero-content">
+
+<h2>
+  <img
+        id="heroCover"
+        src="assets/icons/music.png"
+        class="hero-cover">
+    Tu música.
+Tu universo.
+</h2>
+
+<button>
+Escuchar ahora
+</button>
+
+</div>
+
+<!-- La imagen de fondo/barra gris ahora está después para aparecer a la derecha -->
+<img
+src="assets/covers/song1.jpg"
+class="hero-cover">
+
+</section>
+
+<section>
+
+<h3>Tendencias</h3>
+
+<div
+id="songsContainer"
+class="songs-row">
+
+</div>
+
+</section>
+
+</main>
+
+<div class="mini-player">
+
+<img
+id="cover"
+src="assets/covers/song1.jpg">
+
+<div>
+
+<h4 id="songTitle">
+Ninguna canción
+</h4>
+
+<p id="artistName">
+Selecciona una canción
+</p>
+
+</div>
+
+<button
+id="playBtn">
+
+▶
+
+</button>
+
+</div>
+
+<nav class="bottom-nav">
+
+<button>🏠</button>
+
+<button>🔍</button>
+
+<button>🎵</button>
+
+<button>❤️</button>
+
+<button>👤</button>
+
+</nav>
+
+<audio id="audio"></audio>
+
+<script src="app.js"></script>
+
+</body>
+</html>
