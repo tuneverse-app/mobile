@@ -2,102 +2,210 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuneverse Mobile</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Tuneverse Mobile</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header class="topbar">
-    <div class="brand">
-        <img src="assets/icons/logotv.PNG" class="logo">
-        <h1>TUNEVERSE</h1>
-    </div>
-    <input id="search" placeholder="Buscar música">
+
+    <div class="brand">
+
+        <img
+        src="assets/icons/logotv.PNG"
+        class="logo">
+
+        <h1>TUNEVERSE</h1>
+
+    </div>
+
+    <input
+    id="search"
+    placeholder="Buscar música">
+
 </header>
 
 <main>
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Tu música. Tu universo.</h2>
-            <button>Escuchar ahora</button>
-        </div>
-        <img id="heroCover" src="assets/covers/luna.jpg" class="hero-cover">
-    </section>
 
-    <section>
-        <h3>Tendencias</h3>
-        <div id="songsContainer" class="songs-row"></div>
-    </section>
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h2>
+                Tu música.
+                Tu universo.
+            </h2>
+
+            <button>
+                Escuchar ahora
+            </button>
+
+        </div>
+
+        <img
+        id="heroCover"
+        src="assets/covers/luna.jpg"
+        class="hero-cover">
+
+    </section>
+
+    <section>
+
+        <h3>Tendencias</h3>
+
+        <div
+        id="songsContainer"
+        class="songs-row">
+
+        </div>
+
+    </section>
+
 </main>
 
-<div id="fullPlayer" class="full-player">
-    <div class="full-header">
-        <button id="closePlayer">⌄</button>
-    </div>
+<!-- FULL PLAYER -->
 
-    <img id="fullCover" src="assets/covers/luna.jpg" class="full-cover">
+<div
+id="fullPlayer"
+class="full-player">
 
-    <h2 id="fullTitle">Ninguna canción</h2>
-    <p id="fullArtist">Selecciona una canción</p>
+    <div class="full-header">
 
-    <div class="progress-container">
-        <div id="progressBar" class="progress-bar">
-            <div id="progress" class="progress"></div>
-        </div>
-        <div class="time-info">
-            <span id="currentTime">0:00</span>
-            <span id="duration">0:00</span>
-        </div>
-    </div>
+        <button id="closePlayer">
+            ⌄
+        </button>
 
-    <div class="full-controls">
-        <button id="prevBtn">⏮</button>
-        <button id="fullPlayBtn">⏸</button>
-        <button id="nextBtn">⏭</button>
-    </div>
+    </div>
 
-    <div class="extra-actions">
-        <button id="likeBtn">❤️</button>
-        <button id="playlistBtn">➕ Playlist</button>
-    </div>
+    <img
+    id="fullCover"
+    src="assets/covers/luna.jpg"
+    class="full-cover">
+
+    <h2 id="fullTitle">
+        Ninguna canción
+    </h2>
+
+    <p id="fullArtist">
+        Selecciona una canción
+    </p>
+
+    <div class="progress-container">
+
+        <div
+        id="progressBar"
+        class="progress-bar">
+
+            <div
+            id="progress"
+            class="progress">
+
+            </div>
+
+        </div>
+
+        <div class="time-info">
+
+            <span id="currentTime">
+                0:00
+            </span>
+
+            <span id="duration">
+                0:00
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="full-controls">
+
+        <button id="prevBtn">
+            ⏮
+        </button>
+
+        <button id="fullPlayBtn">
+            ⏸
+        </button>
+
+        <button id="nextBtn">
+            ⏭
+        </button>
+
+    </div>
+
+    <div class="extra-actions">
+
+        <button id="likeBtn">
+            ❤️
+        </button>
+
+        <button id="playlistBtn">
+            ➕ Playlist
+        </button>
+
+    </div>
+
 </div>
 
-<div id="miniPlayer" class="mini-player">
-    <img id="cover" src="assets/covers/luna.jpg">
-    <div>
-        <h4 id="songTitle">Ninguna canción</h4>
-        <p id="artistName">Selecciona una canción</p>
-    </div>
-    <button id="playBtn">▶</button>
+<!-- MINI PLAYER -->
+
+<div
+id="miniPlayer"
+class="mini-player">
+
+    <img
+    id="cover"
+    src="assets/covers/luna.jpg">
+
+    <div>
+
+        <h4 id="songTitle">
+            Ninguna canción
+        </h4>
+
+        <p id="artistName">
+            Selecciona una canción
+        </p>
+
+    </div>
+
+    <button
+    id="playBtn">
+
+        ▶
+
+    </button>
+
 </div>
 
 <nav class="bottom-nav">
-    <button>🏠</button>
-    <button>🔍</button>
-    <button>🎵</button>
-    <button>❤️</button>
-    <button>👤</button>
+
+    <button>🏠</button>
+
+    <button>🔍</button>
+
+    <button>🎵</button>
+
+    <button>❤️</button>
+
+    <button>👤</button>
+
 </nav>
 
 <audio id="audio"></audio>
 
-<script>
-    // 1. Definimos las constantes vinculadas a tus botones
-    const likeBtn = document.getElementById("likeBtn");
-    const playlistBtn = document.getElementById("playlistBtn");
-
-    // 2. Agregamos funciones de prueba para que verifiques que responden al hacer click
-    likeBtn.addEventListener("click", () => {
-        alert("¡Le diste Like a la canción!");
-    });
-
-    playlistBtn.addEventListener("click", () => {
-        alert("¡Añadido a tu Playlist con éxito!");
-    });
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
