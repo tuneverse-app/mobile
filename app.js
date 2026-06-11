@@ -305,3 +305,58 @@ loadSong(currentSong);
 );
 
 renderSongs();
+let likedSongs =
+JSON.parse(
+localStorage.getItem(
+"likedSongs"
+)
+) || [];
+
+likeBtn.addEventListener(
+"click",
+()=>{
+
+const song =
+songs[currentSong].title;
+
+if(
+likedSongs.includes(song)
+){
+
+likedSongs =
+likedSongs.filter(
+s => s !== song
+);
+
+likeBtn.textContent =
+"🤍";
+
+}else{
+
+likedSongs.push(song);
+
+likeBtn.textContent =
+"❤️";
+
+}
+
+localStorage.setItem(
+"likedSongs",
+JSON.stringify(
+likedSongs
+)
+);
+
+}
+);
+
+playlistBtn.addEventListener(
+"click",
+()=>{
+
+alert(
+"Playlists próximamente 🚀"
+);
+
+}
+);
